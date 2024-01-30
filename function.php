@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 function DirDisplay($dir)
 {
     if (is_dir($dir)) {
@@ -6,12 +6,14 @@ function DirDisplay($dir)
             while (($file = readdir($dh)) !== false) {
                 // без текущего каталога
                 if ($file != '.') {
+                    // ??? переход на директорию выше работает без доп условия, но остается в строке параметров, сортировка папок и файлов
                     $dirfile = $dir . "/" . $file;
                     // проверка на директорию
                     if (is_dir($dirfile)) {
-                        echo "<li><a href='/?dir=$dirfile'> $file</a></li>";
+                        echo "<li class='folder' ><a href='/?dir=$dirfile'> $file</a></li>";
                     } else {
-                        echo "<li>$file " . " size: " . filesize($dirfile) . "</li>";
+                        $extention= substr(strrchr($file, '.'), 1);
+                        echo "<li class='file' >$file " . " | file size: " . filesize($dirfile) . " | file type: " . $extention . "</li>";
                     }
                 }
             }

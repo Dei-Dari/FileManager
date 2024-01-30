@@ -1,0 +1,7 @@
+.folder {
+    list-style-image: url("/img/folder_open_icon.png");
+}
+
+.file {
+    list-style-image: url("/img/file_alt_icon.png");
+}
