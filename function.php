@@ -1,13 +1,13 @@
-<?php
+п»ї<?php
 function DirDisplay($dir)
 {
     if (is_dir($dir)) {
         if ($dh = opendir($dir)) {
             while (($file = readdir($dh)) !== false) {
-                // вывод родительского каталога '..', ссылка на текущий каталог не учитывается
+                // Р±РµР· С‚РµРєСѓС‰РµРіРѕ РєР°С‚Р°Р»РѕРіР°
                 if ($file != '.') {
                     $dirfile = $dir . "/" . $file;
-                    // проверка на директорию
+                    // РїСЂРѕРІРµСЂРєР° РЅР° РґРёСЂРµРєС‚РѕСЂРёСЋ
                     if (is_dir($dirfile)) {
                         echo "<li><a href='/?dir=$dirfile'> $file</a></li>";
                     } else {
