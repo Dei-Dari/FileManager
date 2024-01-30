@@ -3,6 +3,11 @@
     <?php
 include_once('function.php');
 $dir = $_SERVER['DOCUMENT_ROOT'];
-DirDisplay($dir);
+if (isset($_GET['dir'])) {
+    DirDisplay($_GET['dir']);
+} else {
+    DirDisplay($_SERVER['DOCUMENT_ROOT']);
+}
+
 ?>
 </ul>
